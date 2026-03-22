@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: red;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

@@ -25,7 +25,7 @@ body {
 
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-primary-border: var(--primary-border);
+  --color-primary-border: hsl(var(--primary-border));
 
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
@@ -51,60 +51,52 @@ body {
   --background: 0 0% 100%;
   --foreground: 330 10% 15%;
   --border: 330 20% 90%;
+
   --card: 0 0% 100%;
   --card-foreground: 330 10% 15%;
   --card-border: 330 20% 88%;
+
   --popover: 0 0% 100%;
   --popover-foreground: 330 10% 15%;
   --popover-border: 330 20% 88%;
+
   --primary: 338 80% 55%;
   --primary-foreground: 0 0% 100%;
-  --primary-border: hsl(338, 80%, 47%);
+  --primary-border: 338 80% 47%;
+
   --secondary: 330 30% 95%;
   --secondary-foreground: 330 10% 25%;
-  --secondary-border: hsl(330, 30%, 87%);
+  --secondary-border: 330 30% 87%;
+
   --muted: 330 20% 96%;
   --muted-foreground: 330 10% 50%;
+
   --accent: 338 60% 95%;
   --accent-foreground: 338 60% 35%;
+
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
+
   --input: 330 20% 88%;
   --ring: 338 80% 55%;
-  --sidebar: 0 0% 100%;
-  --sidebar-foreground: 330 10% 15%;
-  --sidebar-border: 330 20% 90%;
-  --sidebar-primary: 338 80% 55%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 330 30% 95%;
-  --sidebar-accent-foreground: 330 10% 25%;
-  --sidebar-ring: 338 80% 55%;
-  --chart-1: 338 80% 55%;
-  --chart-2: 300 40% 60%;
-  --chart-3: 330 60% 70%;
-  --chart-4: 350 70% 65%;
-  --chart-5: 320 50% 50%;
 
   --app-font-sans: 'Inter', sans-serif;
   --radius: 0.5rem;
-
-  --pink-brand: #e84393;
-  --pink-light: #fce4f0;
-  --pink-dark: #c2185b;
-  --red-brand: #e53935;
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border; /* ✅ CORRIGIDO AQUI */
   }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
 
+/* BOTÃO */
 .btn-pink {
-  background-color: var(--pink-brand);
+  background-color: #e84393;
   color: white;
   border-radius: 9999px;
   font-weight: 700;
@@ -114,10 +106,12 @@ body {
   text-align: center;
   cursor: pointer;
 }
+
 .btn-pink:hover {
-  background-color: var(--pink-dark);
+  background-color: #c2185b;
 }
 
+/* TITULO */
 .section-title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -126,31 +120,37 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* CARD */
 .product-card {
   border-radius: 1rem;
   overflow: hidden;
   background: white;
-  box-shadow: 0 2px 12px rgba(232,67,147,0.08);
+  box-shadow: 0 2px 12px rgba(232, 67, 147, 0.08);
   transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(232,67,147,0.16);
+  box-shadow: 0 8px 24px rgba(232, 67, 147, 0.16);
 }
 
+/* ESTRELA */
 .star {
   color: #f5a623;
 }
 
+/* ANIMAÇÃO */
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
 .marquee-inner {
   display: flex;
   animation: marquee 25s linear infinite;
   width: max-content;
 }
+
 .marquee-inner:hover {
   animation-play-state: paused;
 }
